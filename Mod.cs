@@ -105,7 +105,7 @@ namespace TBFlash.MoreBuses
             {
                 SetBusInterval();
             }
-            if (GameTimer.Minute % 5 == 0)
+            if (GameTimer.Second % 300 == 0)
             {
                 CalculateNumPax();
             }

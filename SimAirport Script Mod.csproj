@@ -44,27 +44,11 @@
     <Reference Include="System.Core">
       <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SimAirport\SimAirport_Data\Managed\System.Core.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SimAirport\SimAirport_Data\Managed\System.Xml.Linq.dll</HintPath>
-    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SimAirport\SimAirport_Data\Managed\System.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SimAirport\SimAirport_Data\Managed\System.Net.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xml">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SimAirport\SimAirport_Data\Managed\System.Xml.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SimAirport\SimAirport_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SimAirport\SimAirport_Data\Managed\UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
