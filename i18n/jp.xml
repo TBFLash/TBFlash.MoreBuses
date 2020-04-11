@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TBFlash>
+	<MoreBuses>
+		<description>バスが増えると、各降車/送迎ゾーンのバス数が2倍になります。さらに、30秒のスポーンクールダウンを有効にすると、各バス（および他の車両）間の遅延が減少します。 1倍速より高い速度でゲームを実行すると、一部のバスが到着しないか、配達/集荷ゾーンにバックアップされない場合があることに注意してください。
+		</description>
+		<cooldownSetting>
+			<name>30秒のスポーンクールダウン</name>
+		</cooldownSetting>
+		<paxPerHourLabel>
+			<name>現在の＃Paxは1時間あたりに降車しました：バス-{0};合計-{1}{2}  （5分ごとにリセット）</name>
+		</paxPerHourLabel>
+		<debug>
+
+		</debug>
+	</MoreBuses>
+</TBFlash>

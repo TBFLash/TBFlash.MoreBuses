@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TBFlash>
+	<MoreBuses>
+		<description>Más autobuses duplica el número de autobuses para cada zona de entrega / recogida. Además, habilitar el Enfriamiento de engendro de 30 segundos disminuirá el retraso entre cada autobús (y otros vehículos). Tenga en cuenta que ejecutar el juego a una velocidad superior a 1x puede provocar que algunos autobuses no lleguen o que se realicen respaldos en sus zonas de entrega / recogida.</description>
+		<cooldownSetting>
+			<name>30 segundos de enfriamiento de engendro
+			</name>
+		</cooldownSetting>
+		<paxPerHourLabel>
+			<name># Pax actual entregado por hora: Autobuses - {0}; Total: {1}{2}   (se reinicia cada 5 minutos)
+			</name>
+		</paxPerHourLabel>
+		<debug>
+
+		</debug>
+	</MoreBuses>
+</TBFlash>

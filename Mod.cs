@@ -49,13 +49,13 @@ namespace TBFlash.MoreBuses
         /// <summary>
         /// Enable debug messages into Player.log
         /// </summary>
-        private readonly bool moreBusesDebug = true;
+        private readonly bool moreBusesDebug = false;
 
         private enum Labels
         {
-            paxPerHour,
-            description,
-            cooldown
+            PaxPerHour,
+            Description,
+            Cooldown
         }
 
         /// <summary>
@@ -76,6 +76,7 @@ namespace TBFlash.MoreBuses
         public override void OnLoad(SimAirport.Modding.Data.GameState state)
         {
             MoreBusesLogging("OnLoad");
+
             if (!(paxPerHourLabelLoaded && descriptionLabelLoaded && cooldownLoaded))
             {
                 paxPerHourLabelLoaded = SettingManager.TryGetSetting<LabelSetting>("PaxPerHour", out paxPerHourLabel);
@@ -90,20 +91,23 @@ namespace TBFlash.MoreBuses
                 {
                     RecalculateBusSpawnTime();
                 }
+
                 if (SettingManager.TryGetBool("cooldownSetting", out bool cooldownSettingValue))
                 {
                     ChangeSpawnCooldown(cooldownSettingValue);
                 }
+
                 enabled = true;
                 CalculateNumPax();
-                ResetLabel(Labels.description);
-                ResetLabel(Labels.cooldown);
+                ResetLabel(Labels.Description);
+                ResetLabel(Labels.Cooldown);
             }
         }
 
         public override void OnSettingsLoaded()
         {
             MoreBusesLogging("OnSettingsLoaded started");
+
             CheckboxSetting cooldownSetting = new CheckboxSetting
             {
                 Name = "30 Second Spawn Cooldown",
@@ -149,10 +153,12 @@ namespace TBFlash.MoreBuses
                 MoreBusesLogging(string.Format("Spawning Bus - Minute {0} NextBus {1}", minute, morebuses_next_bus));
                 EnqueueBuses(false);
             }
+
             if (GameTimer.Second % 60 == 0)
             {
                 SetBusInterval();
             }
+
             if (GameTimer.Second % 300 == 0)
             {
                 CalculateNumPax();
@@ -169,26 +175,29 @@ namespace TBFlash.MoreBuses
             {
                 numPaxOnLightrail += (int)((float)LightRailTrain.MaxCapacity * (60f / (float)Game.current.spawner.lightrail_interval));
             }
-            int numPaxOnBuses = 0;
-            int count = Game.current.Map().ZonesByType(Zone.ZoneType.Dropoffs).Count;
-            int multiplier=1;
-            if(enabled)
+
+            int multiplier = 1;
+            if (enabled)
             {
                 multiplier = 2;
             }
+
+            int numPaxOnBuses = 0;
+            int dropoffZoneCount = Game.current.Map().ZonesByType(Zone.ZoneType.Dropoffs).Count;
             if (TechTreeLevel.TechLevelReached(TechTreeLevel.TechTreeLevels.UpgradedBuses))
             {
-                numPaxOnBuses += (int)((float)(150 * count * multiplier) * (60f / (float)Game.current.spawner.bus_interval));
+                numPaxOnBuses += (int)((float)(150 * dropoffZoneCount * multiplier) * (60f / (float)Game.current.spawner.bus_interval));
             }
             else
             {
-                numPaxOnBuses += (int)((float)(75 * count * multiplier) * (60f / (float)Game.current.spawner.bus_interval));
+                numPaxOnBuses += (int)((float)(75 * dropoffZoneCount * multiplier) * (60f / (float)Game.current.spawner.bus_interval));
             }
+
             if (!(paxPerHourTotal == numPaxOnLightrail + numPaxOnBuses && paxPerHourBuses == numPaxOnBuses))
             {
                 paxPerHourTotal = numPaxOnLightrail + numPaxOnBuses;
                 paxPerHourBuses = numPaxOnBuses;
-                ResetLabel(Labels.paxPerHour);
+                ResetLabel(Labels.PaxPerHour);
             }
         }
 
@@ -228,6 +237,7 @@ namespace TBFlash.MoreBuses
                 vehicleBus.initialState = BaseAgent.State.InboundPickup;
                 pickupZoneCount++;
             }
+
             int dropoffZoneCount = 0;
             foreach(Zone localDOZone in Game.current.Map().ZonesByType(Zone.ZoneType.Dropoffs))
             {
@@ -236,6 +246,7 @@ namespace TBFlash.MoreBuses
                 vehicleBus2.initialState = BaseAgent.State.InboundDropoff;
                 dropoffZoneCount++;
             }
+
             if (!freeBus)
             {
                 Game.current._money.ChangeBalance(-25.0 * (double)(dropoffZoneCount + pickupZoneCount), i18n.Get("UI.money.reason.BusService", ""), GamedayReportingData.MoneyCategory.Transportation, -1);
@@ -272,15 +283,15 @@ namespace TBFlash.MoreBuses
         {
             switch(labelToChange)
             {
-                case Labels.paxPerHour when paxPerHourLabelLoaded:
+                case Labels.PaxPerHour when paxPerHourLabelLoaded:
                     paxPerHourLabel.Name = string.Format(i18n.Get("TBFlash.MoreBuses.paxPerHourLabel.name", ""), paxPerHourBuses, paxPerHourTotal, Environment.NewLine);
                     MoreBusesLogging(string.Format("Resetting the paxPerHourLabel to Buses-{0}; Total-{1}", paxPerHourBuses, paxPerHourTotal));
                     return;
-                case Labels.description when descriptionLabelLoaded:
+                case Labels.Description when descriptionLabelLoaded:
                     descriptionLabel.Name = i18n.Get("TBFlash.MoreBuses.description", "");
                     MoreBusesLogging("Resetting the description");
                     return;
-                case Labels.cooldown when cooldownLoaded:
+                case Labels.Cooldown when cooldownLoaded:
                     cooldownCheckbox.Name = i18n.Get("TBFlash.MoreBuses.cooldownSetting.name", "");
                     MoreBusesLogging("Resetting the cooldown name");
                     return;

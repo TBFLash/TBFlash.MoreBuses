@@ -1,0 +1,14 @@
+﻿"workshopitem"
+{
+	"appid" "598330"
+	"publishedfileid" "2055733438"
+	"contentfolder" "C:\Users\Jason\AppData\LocalLow\LVGameDev LLC\SimAirport\Mods\MoreBuses"
+	"previewfile" "C:\Users\Jason\AppData\LocalLow\LVGameDev LLC\SimAirport\Mods\MoreBuses\preview.png"
+	"visibility" "1"
+	"title" "More Buses"
+	"description" "[b]Not recommended for starter or small airports.[/b]
+
+More Buses doubles the number of buses for each dropoff/pickup zone. Additionally, enabling the 30 Second Spawn Cooldown will decrease the delay between each bus (and other vehicles). Note that running the game at higher than 1x speed may result in some buses not arriving or backups in your delivery/pickup zones.
+
+Note: The number of Pax/Hour does not currently update in the Passenger Hub or on the Transport Capacity chart. See the Mod Settings for updated numbers."
+}

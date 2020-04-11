@@ -58,7 +58,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="i18n\zh.xml" />
+    <Content Include="i18n\ru.xml" />
+    <Content Include="i18n\nl.xml" />
+    <Content Include="i18n\jp.xml" />
+    <Content Include="i18n\it.xml" />
+    <Content Include="i18n\fr.xml" />
+    <Content Include="i18n\es.xml" />
+    <Content Include="i18n\de.xml" />
+    <Content Include="i18n\cs.xml" />
     <Content Include="i18n\en.xml" />
+    <Content Include="preview.png" />
+    <None Include="TBFlash.MoreBuses.vdf" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

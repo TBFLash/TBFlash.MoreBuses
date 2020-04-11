@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TBFlash>
+	<MoreBuses>
+		<description>More Buses double le nombre de bus pour chaque zone de dépôt / ramassage. De plus, l'activation du temps de recharge de réapparition de 30 secondes réduira le délai entre chaque bus (et les autres véhicules). Notez que l'exécution du jeu à une vitesse supérieure à 1x peut entraîner l'arrêt de certains bus ou des sauvegardes dans vos zones de livraison / collecte.</description>
+		<cooldownSetting>
+			<name>Temps de recharge de réapparition de 30 secondes
+			</name>
+		</cooldownSetting>
+		<paxPerHourLabel>
+			<name># Pax actuel a chuté par heure: Bus - {0}; Total - {1}{2}   (réinitialisation toutes les 5 minutes)</name>
+		</paxPerHourLabel>
+		<debug>
+
+		</debug>
+	</MoreBuses>
+</TBFlash>

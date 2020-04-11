@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TBFlash>
+	<MoreBuses>
+		<description>Další autobusy zdvojnásobí počet autobusů pro každou zónu odletu / vyzvednutí. Navíc aktivace 30 sekund sníží zpoždění mezi jednotlivými autobusy (a ostatními vozidly). Uvědomte si, že spuštění hry vyšší než 1x rychlostí může mít za následek, že některé autobusy nepřijdou nebo nebudou zálohovat vaše doručovací / vyzvedávací zóny.
+		</description>
+		<cooldownSetting>
+			<name>30 sekund zpoždění
+			</name>
+		</cooldownSetting>
+		<paxPerHourLabel>
+			<name>Aktuální # Pax klesl za hodinu: Autobusy - {0}; Celkem - {1} {2}   (Resetuje se každých 5 minut)
+			</name>
+		</paxPerHourLabel>
+		<debug>
+
+		</debug>
+	</MoreBuses>
+</TBFlash>

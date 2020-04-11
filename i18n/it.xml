@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TBFlash>
+	<MoreBuses>
+		<description>Più autobus raddoppia il numero di autobus per ciascuna zona di riconsegna / ritiro. Inoltre, l'abilitazione del tempo di recupero di spawn di 30 secondi riduce il ritardo tra ciascun bus (e altri veicoli). Tieni presente che l'esecuzione del gioco a una velocità superiore a 1x potrebbe comportare la mancata consegna di alcuni autobus o il backup nelle zone di consegna / ritiro.
+		</description>
+		<cooldownSetting>
+			<name>30 secondi di spawn Cooldown</name>
+		</cooldownSetting>
+		<paxPerHourLabel>
+			<name>N. corrente Pax abbandonato all'ora: autobus - {0}; Totale - {1}{2}   (ripristina ogni 5 minuti)
+			</name>
+		</paxPerHourLabel>
+		<debug>
+
+		</debug>
+	</MoreBuses>
+</TBFlash>

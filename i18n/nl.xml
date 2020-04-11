@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TBFlash>
+	<MoreBuses>
+		<description>Meer bussen verdubbelt het aantal bussen voor elke drop-off / pickup-zone. Bovendien zal het inschakelen van de afkoelperiode van 30 seconden spawn de vertraging tussen elke bus (en andere voertuigen) verminderen. Houd er rekening mee dat het uitvoeren van het spel met een hogere snelheid dan 1x de snelheid kan hebben dat sommige bussen niet aankomen of dat er back-ups worden gemaakt in uw bezorg- / ophaalzones.</description>
+		<cooldownSetting>
+			<name>30 seconden afkoelperiode
+			</name>
+		</cooldownSetting>
+		<paxPerHourLabel>
+			<name>Het huidige aantal Pax is per uur afgezet: bussen - {0}; Totaal - {1}{2}   (wordt elke 5 minuten gereset)
+			</name>
+		</paxPerHourLabel>
+		<debug>
+
+		</debug>
+	</MoreBuses>
+</TBFlash>

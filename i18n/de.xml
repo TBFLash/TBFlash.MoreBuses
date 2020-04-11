@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TBFlash>
+	<MoreBuses>
+		<description>Mehr Busse verdoppelt die Anzahl der Busse für jede Abgabe- / Abholzone. Durch Aktivieren der 30-Sekunden-Spawn-Abklingzeit wird außerdem die Verzögerung zwischen jedem Bus (und anderen Fahrzeugen) verringert. Beachten Sie, dass das Ausführen des Spiels mit einer Geschwindigkeit von mehr als 1x dazu führen kann, dass einige Busse nicht ankommen oder Backups in Ihren Liefer- / Abholzonen vorhanden sind.</description>
+		<cooldownSetting>
+			<name>30 Sekunden Spawn-Abklingzeit
+			</name>
+		</cooldownSetting>
+		<paxPerHourLabel>
+			<name>Aktuelle # Pax pro Stunde abgesetzt: Busse - {0}; Gesamt - {1} {2}   (Wird alle 5 Minuten zurückgesetzt)
+			</name>
+		</paxPerHourLabel>
+		<debug>
+
+		</debug>
+	</MoreBuses>
+</TBFlash>
