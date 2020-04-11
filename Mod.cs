@@ -42,7 +42,7 @@ namespace TBFlash.MoreBuses
 
         private bool descriptionLabelLoaded = false;
 
-        private CheckboxSetting cooldownCheckbox;
+        private CheckboxSetting cooldownSetting;
 
         private bool cooldownLoaded = false;
 
@@ -77,12 +77,10 @@ namespace TBFlash.MoreBuses
         {
             MoreBusesLogging("OnLoad");
 
-            if (!(paxPerHourLabelLoaded && descriptionLabelLoaded && cooldownLoaded))
+            if (!(paxPerHourLabelLoaded && descriptionLabelLoaded))
             {
                 paxPerHourLabelLoaded = SettingManager.TryGetSetting<LabelSetting>("PaxPerHour", out paxPerHourLabel);
                 descriptionLabelLoaded = SettingManager.TryGetSetting<LabelSetting>("Description", out descriptionLabel);
-                cooldownLoaded = SettingManager.TryGetSetting<CheckboxSetting>("CooldownSetting", out cooldownCheckbox);
-                MoreBusesLogging(string.Format("Loading labels: PaxPerHour - {0}, Description - {1}, Cooldown - {2}", paxPerHourLabelLoaded, descriptionLabelLoaded, cooldownLoaded));
             }
 
             if (Game.isLoaded)
@@ -92,10 +90,8 @@ namespace TBFlash.MoreBuses
                     RecalculateBusSpawnTime();
                 }
 
-                if (SettingManager.TryGetBool("cooldownSetting", out bool cooldownSettingValue))
-                {
-                    ChangeSpawnCooldown(cooldownSettingValue);
-                }
+                ChangeSpawnCooldown(cooldownSetting.Value);
+                cooldownLoaded = true;
 
                 enabled = true;
                 CalculateNumPax();
@@ -108,10 +104,14 @@ namespace TBFlash.MoreBuses
         {
             MoreBusesLogging("OnSettingsLoaded started");
 
-            CheckboxSetting cooldownSetting = new CheckboxSetting
+            //Need to remove existing CooldownSetting, otherwise it does not execute OnValueChanged
+            bool savedSetting = SettingManager.TryGetSetting("CooldownSetting", out CheckboxSetting cooldownCheckbox) && cooldownCheckbox.Value;
+            SettingManager.RemoveSetting("CooldownSetting");
+
+            cooldownSetting = new CheckboxSetting
             {
                 Name = "30 Second Spawn Cooldown",
-                Value = false,
+                Value = savedSetting,
                 SortOrder = 5,
                 OnValueChanged = new Action<bool>((bool changeVar) =>
                 {
@@ -124,14 +124,14 @@ namespace TBFlash.MoreBuses
             LabelSetting description = new LabelSetting
             {
                 Name = "",
-                SortOrder = 100
+                SortOrder = 10
             };
             SettingManager.AddDefault("Description", description);
 
             LabelSetting paxPerHour = new LabelSetting
             {
                 Name = "",
-                SortOrder = 90
+                SortOrder = 9
             };
             SettingManager.AddDefault("PaxPerHour", paxPerHour);
         }
@@ -292,7 +292,7 @@ namespace TBFlash.MoreBuses
                     MoreBusesLogging("Resetting the description");
                     return;
                 case Labels.Cooldown when cooldownLoaded:
-                    cooldownCheckbox.Name = i18n.Get("TBFlash.MoreBuses.cooldownSetting.name", "");
+                    cooldownSetting.Name = i18n.Get("TBFlash.MoreBuses.cooldownSetting.name", "");
                     MoreBusesLogging("Resetting the cooldown name");
                     return;
                 default:
